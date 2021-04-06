@@ -1,0 +1,111 @@
+<div class="main-wrapper">
+  <div class="container-fluid">
+    <div class="header-section">
+      <ul>
+        <li>trips</li>
+        <li>recently viewed</li>
+        <li>bookings</li>
+      </ul>
+      <div class="image-wrapper">
+        <img src="../../../assets/images/user.png" alt="User Profile Picture">
+      </div>
+    </div>
+
+
+    <!--section for the main content which starts with the card holder -->
+
+    <div class="content-section">
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="payment-info">
+            <h3>Payment Information</h3>
+            <h5>Choose your method of payment</h5>
+            <div class="card-image-wrapper">
+              <img src="../../../assets/images/card.png" alt="Payment info">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="card-types">
+            <ul>
+              <li>
+                <img src="../../../assets/images/visa.png" alt="visa">
+              </li>
+              <li>
+                <img src="../../../assets/images/discover.png" alt="discover">
+              </li>
+              <li>
+
+              </li>
+              <li>
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <img src="../../../assets/images/paypal.png" alt="visa">
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-details-wrapper">
+            <form [formGroup]="paymentForm" (ngSubmit)="addCard()">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <label for="cardNumber">Credit card number</label>
+                    <input type="number" class="form-control-lg" placeholder="4324 5433 9382 1030" formControlName="cardNumber">
+                    <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("cardNumber")}}</mat-error>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label for="expirationDate">Expiration date</label>
+                  <input type="text" class="form-control-lg" placeholder="03/04" id="expirationDate" name="expirationDate" formControlName="expirationDate">
+                  <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("expirationDate")}}</mat-error>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label for="securityCode">Security code</label>
+                  <input type="number" class="form-control-lg" placeholder="420" id="securityCode" name="securityCode" formControlName="securityCode">
+                  <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("securityCode")}}</mat-error>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label for="postalCode">Postal Code</label>
+                  <input type="number" class="form-control-lg" placeholder="10119" id="postalCode" name="postalCode" formControlName="postalCode">
+                  <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("postalCode")}}</mat-error>
+                </div>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="saveCard" id="saveCard" formControlName="saveCard"  value="1">
+                  <label class="form-check-label" for="saveCard">
+                    Use this card for next time purchase
+                  </label>
+              </div>
+
+              <div class="submit-button-wrapper">
+                <!--soinner for data loading-->
+                <div class="d-flex justify-content-center pb-3" *ngIf="loaderIsActive">
+                  <div class="spinner-border" role="status">
+                  </div>
+                </div>
+                <button type="submit" class="btn-lg btn-primary" [disabled]="this.paymentForm.invalid"> Add card</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+
+      <!--section for total payment calculation-->
+      <div class="payment-wrapper" *ngFor="let item of paymentData">
+        <p>Subtotal <span>₦{{item.subTOtal | number: '.2'}}</span></p>
+        <p>Estimated TAX <span>₦{{item.estimatedTax | number: '.2'}}</span></p>
+        <p>Promotional Code: <i>{{item.promotionalCode}}</i> <span>₦{{item.promotionalCodeAmount | number: '.2'}}</span></p>
+
+        <hr>
+
+        <div class="total-wrapper">
+          <button class="btn btn-primary" (click)="completePayment()">Complete payment</button>
+          <span>TOTAL: ₦{{item.subTOtal + item.estimatedTax + item.promotionalCodeAmount | number: '.2' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

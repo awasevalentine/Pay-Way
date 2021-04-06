@@ -1,0 +1,262 @@
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* section for the top header which contains the  navbar */
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.header-section ul {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 20px 40px;
+
+}
+
+.header-section ul>li{
+  padding: 20px 20px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: rgba(0,0,0,0.64);
+}
+
+.header-section img {
+  border-radius: 50%;
+  width: 100px;
+  padding: 20px 0;
+}
+
+
+
+
+/* Section for payment information*/
+
+.content-section {
+  margin: 40px 80px;
+}
+.payment-info h3 {
+  font-weight: bold;
+}
+.payment-info h5{
+  padding-bottom: 2em;
+  color: rgba(0,0,0,0.4);
+}
+
+hr {
+  margin-right: 20px;
+}
+
+.card-image-wrapper img {
+  width: 80%;
+  height: 300px;
+  border-radius: 17px;
+}
+
+
+
+
+/*section for card details and card type */
+.card-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+
+.card-types ul {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0 10px;
+}
+
+.card-types ul>li{
+  padding: 0 8px;
+}
+
+.card-types img {
+  height: 50px;
+}
+.fa-circle {
+  color: #000;
+  color: rgba(0,0,0,0.1);
+  padding-top: 8px;
+  padding-right: 10px;
+}
+.card-types ul>li:last-child {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.form-control-lg {
+  border: solid 2px rgb(252, 248, 248);
+  height: 50px;
+  width: 100%;
+  padding-left: 1em;
+  background-color:  rgba(235, 233, 233, 0.952);
+  font-size: 16px;
+  color: black;
+}
+
+input:focus{
+  outline: none;
+}
+
+::placeholder {
+  color: #000;
+}
+
+.card-details-wrapper, .col-md-6 {
+  padding: 15px 10px;
+}
+
+.submit-button-wrapper {
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.submit-button-wrapper, button {
+  width: 100%;
+  height: 70px;
+}
+
+
+
+
+/*section for total payment calculation and payment completing*/
+
+.payment-wrapper {
+  font-weight: bolder;
+}
+
+.payment-wrapper hr {
+  margin-top: 4em;
+}
+.payment-wrapper span {
+  float: right;
+  padding-right: 3em;
+  font-size: 20px;
+}
+.payment-wrapper i {
+  font-style: normal !important;
+  color: rgba(0,0,0,0.4);
+}
+
+.total-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 50px 0;
+  padding-bottom: 4em !important;
+}
+
+.total-wrapper button {
+  width: 30%;
+  font-size: 20px;
+}
+
+.total-wrapper span {
+  width: 100%;
+  font-size: 30px;
+  font-weight: bolder;
+  padding-right: 0!important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* Chrome, Safari, Edge, Opera... this css style is used to remove the
+up and down arrow key on the input with type="number" */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+/* section for media queries*/
+
+// section for phones with smaller screen
+@media (max-width: 767px) {
+
+  .container-fluid {
+    padding: 0!important;
+  }
+
+  //section for the top header
+  .header-section ul {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+  }
+  .header-section ul>li{
+    padding: 20px 10px;
+    margin-left: 0!important;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #000;
+    color: rgba(0,0,0,0.64);
+  }
+
+
+  //section for main content
+  .content-section {
+    margin: 5px 10px;
+  }
+
+  .card-image-wrapper img {
+    width: 100%;
+    height: 300px;
+    border-radius: 17px;
+  }
+
+  .card-types ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0 10px;
+  }
+
+  .payment-wrapper span {
+    float: right;
+    padding-right: 0.5em;
+    font-size: 20px;
+  }
+
+  .total-wrapper button {
+    width: 60%;
+    font-size: 20px;
+  }
+  .total-wrapper {
+    padding-bottom: 3em;
+  }
+
+}
+
