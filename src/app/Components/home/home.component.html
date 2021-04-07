@@ -51,17 +51,17 @@
               <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <label for="cardNumber">Credit card number</label>
-                    <input type="number" class="form-control-lg" placeholder="4324 5433 9382 1030" formControlName="cardNumber">
+                    <input type="tel" class="form-control-lg" placeholder="4324 5433 9382 1030" formControlName="cardNumber" inputmode="numeric" pattern="[0-9\s]{13,16}" autocomplete="cc-number" maxlength="16">
                     <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("cardNumber")}}</mat-error>
                 </div>
                 <div class="col-sm-12 col-md-6">
                   <label for="expirationDate">Expiration date</label>
-                  <input type="text" class="form-control-lg" placeholder="03/04" id="expirationDate" name="expirationDate" formControlName="expirationDate">
+                  <input type="tel" class="form-control-lg" placeholder="03/04" id="expirationDate" name="expirationDate" formControlName="expirationDate" inputmode="numeric" pattern="[0-9\s]{5,7}" autocomplete="cc-number" maxlength="5" >
                   <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("expirationDate")}}</mat-error>
                 </div>
                 <div class="col-sm-12 col-md-6">
                   <label for="securityCode">Security code</label>
-                  <input type="number" class="form-control-lg" placeholder="420" id="securityCode" name="securityCode" formControlName="securityCode">
+                  <input type="tel" class="form-control-lg" placeholder="420" id="securityCode" name="securityCode" formControlName="securityCode" inputmode="numeric"  autocomplete="cc-number" maxlength="3" >
                   <mat-error class="text-danger" *ngIf = "paymentForm.invalid">{{formValidationErrorMessage("securityCode")}}</mat-error>
                 </div>
                 <div class="col-sm-12 col-md-6">
